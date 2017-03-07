@@ -5,7 +5,7 @@ import org.scalajs.dom.window.localStorage
 import upickle.default._
 
 import scala.concurrent.Future
-import scalajs.concurrent.JSExecutionContext.Implicits.queue
+import scala.concurrent.ExecutionContext
 
 object Cache {
   def apply(
@@ -124,8 +124,8 @@ class Cache(
     }
   }
 
-  def apply[Data : Reader : Writer](key:String, future: => Future[Data]):Future[Data] = apply(key, DefaultExpiration, future)
-  def apply[Data : Reader : Writer](key:String, expiry:Double, future: => Future[Data]):Future[Data] = {
+  def apply[Data : Reader : Writer](key:String, future: => Future[Data])(implicit ec: ExecutionContext):Future[Data] = apply(key, DefaultExpiration, future)
+  def apply[Data : Reader : Writer](key:String, expiry:Double, future: => Future[Data])(implicit ec: ExecutionContext):Future[Data] = {
     get[Data](key) match {
       case Some(value) => Future(value)
       case None => future.map(value => {
