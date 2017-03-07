@@ -24,7 +24,7 @@ class Cache(
   assert(CacheSize > 0)
   assert(DefaultExpiration >= 0)
 
-  case class Item(data:String, time:Double) {
+  private case class Item(data:String, time:Double) {
     def expired:Boolean = {
       time != 0 && time < Date.now()
     }
