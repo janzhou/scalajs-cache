@@ -8,7 +8,10 @@ lazy val root = (project in file(".")).settings(
   scalacOptions ++= Seq(
     "-feature",
     "-deprecation",
-    "-Xmax-classfile-name", "100"
+    "-Xmax-classfile-name", "100",
+    "-doc-title", "Scala.js Cache",
+    "-sourcepath", (baseDirectory in ThisBuild).value.toString,
+    "-doc-source-url", s"https://github.com/janzhou/${name.value}/tree/${version.value}€{FILE_PATH}.scala"
   ),
   libraryDependencies ++= Seq(
     "com.lihaoyi" %%% "upickle" % "0.4.4",
