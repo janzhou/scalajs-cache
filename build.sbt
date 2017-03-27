@@ -1,7 +1,7 @@
 lazy val root = (project in file(".")).settings(
   name := "scalajs-cache",
   organization := "org.janzhou",
-  version := "0.0.x",
+  version := "0.0.1",
   scalaVersion := "2.12.1",
   crossScalaVersions := Seq("2.11.8", "2.12.1"),
   sbtVersion := "0.13.11",
