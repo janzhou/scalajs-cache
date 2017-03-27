@@ -104,12 +104,17 @@ class Cache(
           save()
           None
         } else {
-          Some(read[Data](item.data))
+          try {
+            Some(read[Data](item.data))
+          } catch {
+            case _:Throwable => {
+              rm(key)
+              None
+            }
+          }
         }
       }
-      case None =>{
-        None
-      }
+      case None => None
     }
   }
 
