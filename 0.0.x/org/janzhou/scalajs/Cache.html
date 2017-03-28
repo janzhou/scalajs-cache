@@ -3,9 +3,9 @@
         <head>
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          <title>Scalajs Cache  - org.janzhou.scalajs.Cache</title>
-          <meta name="description" content="Scalajs Cache - org.janzhou.scalajs.Cache" />
-          <meta name="keywords" content="Scalajs Cache org.janzhou.scalajs.Cache" />
+          <title>Scala.js Cache  - org.janzhou.scalajs.Cache</title>
+          <meta name="description" content="Scala.js Cache - org.janzhou.scalajs.Cache" />
+          <meta name="keywords" content="Scala.js Cache org.janzhou.scalajs.Cache" />
           <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
           
       <link href="../../../lib/index.css" media="screen" type="text/css" rel="stylesheet" />
@@ -28,7 +28,7 @@
         </head>
         <body>
       <div id="search">
-        <span id="doc-title">Scalajs Cache<span id="doc-version"></span></span>
+        <span id="doc-title">Scala.js Cache<span id="doc-version"></span></span>
         <span class="close-results"><span class="left">&lt;</span> Back</span>
         <div id="textfilter">
           <span class="input">
@@ -127,8 +127,8 @@
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="../index.html" class="extype" name="org.janzhou">janzhou</a></dd></dl></div>
     </li><li class="current-entities indented3">
                         <a class="object" href="Cache$.html" title=""></a>
-                        <a class="class" href="" title=""></a>
-                        <a href="" title="">
+                        <a class="class" href="" title="A Scalajs Cache running in browser."></a>
+                        <a href="" title="A Scalajs Cache running in browser.">
                           Cache
                         </a>
                       </li>
@@ -161,7 +161,7 @@
       </h4>
 
       
-          <div id="comment" class="fullcommenttop"><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/janzhou/scalajs-cache/tree/0.0.x/src/main/scala/Cache.scala" target="_blank">Cache.scala</a></dd></dl><div class="toggleContainer block">
+          <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>A Scalajs Cache running in browser.</p></div><dl class="attributes block"> <dt>Source</dt><dd><a href="https://github.com/janzhou/scalajs-cache/tree/0.0.x/src/main/scala/Cache.scala" target="_blank">Cache.scala</a></dd></dl><div class="toggleContainer block">
           <span class="toggle">
             Linear Supertypes
           </span>
@@ -211,7 +211,7 @@
         <div id="allMembers">
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
-              <ol><li name="org.janzhou.scalajs.Cache#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+              <ol><li name="org.janzhou.scalajs.Cache#&lt;init&gt;" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="&lt;init&gt;(CacheKey:String,CacheSize:Int,DefaultExpiration:Double):org.janzhou.scalajs.Cache"></a><a id="&lt;init&gt;:Cache"></a>
       <span class="permalink">
       <a href="../../../org/janzhou/scalajs/Cache.html#&lt;init&gt;(CacheKey:String,CacheSize:Int,DefaultExpiration:Double):org.janzhou.scalajs.Cache" title="Permalink">
@@ -226,7 +226,7 @@
         <span class="name">Cache</span><span class="params">(<span name="CacheKey">CacheKey: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="CacheSize">CacheSize: <span class="extype" name="scala.Int">Int</span></span>, <span name="DefaultExpiration">DefaultExpiration: <span class="extype" name="scala.Double">Double</span></span>)</span>
       </span>
       
-      
+      <p class="shortcomment cmt">Create a new cache with a name, size and default expiration time.</p><div class="fullcomment"><div class="comment cmt"><p>Create a new cache with a name, size and default expiration time.</p></div><dl class="paramcmts block"><dt class="param">CacheKey</dt><dd class="cmt"><p>the name of the cache.</p></dd><dt class="param">CacheSize</dt><dd class="cmt"><p>the max number of the cached items.</p></dd><dt class="param">DefaultExpiration</dt><dd class="cmt"><p>the default expiration time of the cached items.</p></dd></dl></div>
     </li></ol>
             </div>
 
@@ -333,7 +333,7 @@
       </span>
       
       
-    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply[Data](key:String,expiry:Double,future:=&gt;scala.concurrent.Future[Data])(implicitevidence$9:upickle.default.Reader[Data],implicitevidence$10:upickle.default.Writer[Data],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Data]"></a><a id="apply[Data](String,Double,⇒Future[Data])(upickle.default.Reader[Data],upickle.default.Writer[Data],ExecutionContext):Future[Data]"></a>
       <span class="permalink">
       <a href="../../../org/janzhou/scalajs/Cache.html#apply[Data](key:String,expiry:Double,future:=&gt;scala.concurrent.Future[Data])(implicitevidence$9:upickle.default.Reader[Data],implicitevidence$10:upickle.default.Writer[Data],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Data]" title="Permalink">
@@ -348,8 +348,8 @@
         <span class="name">apply</span><span class="tparams">[<span name="Data">Data</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="expiry">expiry: <span class="extype" name="scala.Double">Double</span></span>, <span name="future">future: ⇒ <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="upickle.Types.Reader">upickle.default.Reader</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>, <span name="arg1">arg1: <span class="extype" name="upickle.Types.Writer">upickle.default.Writer</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>
       </span>
       
-      
-    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Cache of a given future.</p><div class="fullcomment"><div class="comment cmt"><p>Cache of a given future.</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key of the cached item.</p></dd><dt class="param">expiry</dt><dd class="cmt"><p>the expiration time of the cached item.</p></dd><dt class="param">future</dt><dd class="cmt"><p>the future returning the value.</p></dd><dt>returns</dt><dd class="cmt"><p>the value of the key, or the return value of the future.</p></dd></dl></div>
+    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply[Data](key:String,future:=&gt;scala.concurrent.Future[Data])(implicitevidence$7:upickle.default.Reader[Data],implicitevidence$8:upickle.default.Writer[Data],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Data]"></a><a id="apply[Data](String,⇒Future[Data])(upickle.default.Reader[Data],upickle.default.Writer[Data],ExecutionContext):Future[Data]"></a>
       <span class="permalink">
       <a href="../../../org/janzhou/scalajs/Cache.html#apply[Data](key:String,future:=&gt;scala.concurrent.Future[Data])(implicitevidence$7:upickle.default.Reader[Data],implicitevidence$8:upickle.default.Writer[Data],implicitec:scala.concurrent.ExecutionContext):scala.concurrent.Future[Data]" title="Permalink">
@@ -364,8 +364,8 @@
         <span class="name">apply</span><span class="tparams">[<span name="Data">Data</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="future">future: ⇒ <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="upickle.Types.Reader">upickle.default.Reader</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>, <span name="arg1">arg1: <span class="extype" name="upickle.Types.Writer">upickle.default.Writer</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>, <span name="ec">ec: <span class="extype" name="scala.concurrent.ExecutionContext">ExecutionContext</span></span>)</span><span class="result">: <span class="extype" name="scala.concurrent.Future">Future</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>
       </span>
       
-      
-    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Cache of a given future.</p><div class="fullcomment"><div class="comment cmt"><p>Cache of a given future.</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key of the cached item.</p></dd><dt class="param">future</dt><dd class="cmt"><p>the future returning the value.</p></dd><dt>returns</dt><dd class="cmt"><p>the value of the key, or the return value of the future.</p></dd></dl></div>
+    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply[Data](key:String,expiry:Double,f:=&gt;Data)(implicitevidence$5:upickle.default.Reader[Data],implicitevidence$6:upickle.default.Writer[Data]):Data"></a><a id="apply[Data](String,Double,⇒Data)(upickle.default.Reader[Data],upickle.default.Writer[Data]):Data"></a>
       <span class="permalink">
       <a href="../../../org/janzhou/scalajs/Cache.html#apply[Data](key:String,expiry:Double,f:=&gt;Data)(implicitevidence$5:upickle.default.Reader[Data],implicitevidence$6:upickle.default.Writer[Data]):Data" title="Permalink">
@@ -380,8 +380,8 @@
         <span class="name">apply</span><span class="tparams">[<span name="Data">Data</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="expiry">expiry: <span class="extype" name="scala.Double">Double</span></span>, <span name="f">f: ⇒ <span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="upickle.Types.Reader">upickle.default.Reader</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>, <span name="arg1">arg1: <span class="extype" name="upickle.Types.Writer">upickle.default.Writer</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>)</span><span class="result">: <span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span></span>
       </span>
       
-      
-    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Cache the result of a given function.</p><div class="fullcomment"><div class="comment cmt"><p>Cache the result of a given function.</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key of the cached item.</p></dd><dt class="param">expiry</dt><dd class="cmt"><p>the expiration time of the cached item.</p></dd><dt class="param">f</dt><dd class="cmt"><p>the function to caculate the value.</p></dd><dt>returns</dt><dd class="cmt"><p>the value of the key, or the return value of the function.</p></dd></dl></div>
+    </li><li name="org.janzhou.scalajs.Cache#apply" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="apply[Data](key:String,f:=&gt;Data)(implicitevidence$3:upickle.default.Reader[Data],implicitevidence$4:upickle.default.Writer[Data]):Data"></a><a id="apply[Data](String,⇒Data)(upickle.default.Reader[Data],upickle.default.Writer[Data]):Data"></a>
       <span class="permalink">
       <a href="../../../org/janzhou/scalajs/Cache.html#apply[Data](key:String,f:=&gt;Data)(implicitevidence$3:upickle.default.Reader[Data],implicitevidence$4:upickle.default.Writer[Data]):Data" title="Permalink">
@@ -396,7 +396,7 @@
         <span class="name">apply</span><span class="tparams">[<span name="Data">Data</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="f">f: ⇒ <span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="upickle.Types.Reader">upickle.default.Reader</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>, <span name="arg1">arg1: <span class="extype" name="upickle.Types.Writer">upickle.default.Writer</span>[<span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span>]</span>)</span><span class="result">: <span class="extype" name="org.janzhou.scalajs.Cache.apply.Data">Data</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Cache the result of a given function.</p><div class="fullcomment"><div class="comment cmt"><p>Cache the result of a given function.</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key of the cached item.</p></dd><dt class="param">f</dt><dd class="cmt"><p>the function to caculate the value.</p></dd><dt>returns</dt><dd class="cmt"><p>the value of the key, or the return value of the function.</p></dd></dl></div>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <span class="permalink">
@@ -468,9 +468,9 @@
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="org.janzhou.scalajs.Cache#evict" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="evict():Unit"></a>
+      <a id="evict():org.janzhou.scalajs.Cache"></a><a id="evict():Cache"></a>
       <span class="permalink">
-      <a href="../../../org/janzhou/scalajs/Cache.html#evict():Unit" title="Permalink">
+      <a href="../../../org/janzhou/scalajs/Cache.html#evict():org.janzhou.scalajs.Cache" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -479,10 +479,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">evict</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">evict</span><span class="params">()</span><span class="result">: <a href="" class="extype" name="org.janzhou.scalajs.Cache">Cache</a></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Remove last cache.</p>
     </li><li name="scala.AnyRef#finalize" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="finalize():Unit"></a>
       <span class="permalink">
@@ -505,7 +505,7 @@
     </span>)</span>
               
         </dd></dl></div>
-    </li><li name="org.janzhou.scalajs.Cache#get" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+    </li><li name="org.janzhou.scalajs.Cache#get" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="get[Data](key:String)(implicitevidence$2:upickle.default.Reader[Data]):Option[Data]"></a><a id="get[Data](String)(upickle.default.Reader[Data]):Option[Data]"></a>
       <span class="permalink">
       <a href="../../../org/janzhou/scalajs/Cache.html#get[Data](key:String)(implicitevidence$2:upickle.default.Reader[Data]):Option[Data]" title="Permalink">
@@ -520,7 +520,7 @@
         <span class="name">get</span><span class="tparams">[<span name="Data">Data</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="upickle.Types.Reader">upickle.default.Reader</span>[<span class="extype" name="org.janzhou.scalajs.Cache.get.Data">Data</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Option">Option</span>[<span class="extype" name="org.janzhou.scalajs.Cache.get.Data">Data</span>]</span>
       </span>
       
-      
+      <p class="shortcomment cmt">Get the value assigned to key.</p><div class="fullcomment"><div class="comment cmt"><p>Get the value assigned to key.</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key of the cached item.</p></dd><dt>returns</dt><dd class="cmt"><p>Option of the value.</p></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
       <span class="permalink">
@@ -569,22 +569,6 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>Any</dd></dl></div>
-    </li><li name="org.janzhou.scalajs.Cache#load" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="load():Unit"></a>
-      <span class="permalink">
-      <a href="../../../org/janzhou/scalajs/Cache.html#load():Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">load</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      
     </li><li name="scala.AnyRef#ne" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="ne(x$1:AnyRef):Boolean"></a><a id="ne(AnyRef):Boolean"></a>
       <span class="permalink">
@@ -633,10 +617,26 @@
       </span>
       
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="org.janzhou.scalajs.Cache#rm" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
+      <a id="rm(key:String):org.janzhou.scalajs.Cache"></a><a id="rm(String):Cache"></a>
+      <span class="permalink">
+      <a href="../../../org/janzhou/scalajs/Cache.html#rm(key:String):org.janzhou.scalajs.Cache" title="Permalink">
+        <i class="material-icons"></i>
+      </a>
+    </span>
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">rm</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <a href="" class="extype" name="org.janzhou.scalajs.Cache">Cache</a></span>
+      </span>
+      
+      <p class="shortcomment cmt">Remove selected cache.</p><div class="fullcomment"><div class="comment cmt"><p>Remove selected cache.</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>name of the key.</p></dd></dl></div>
     </li><li name="org.janzhou.scalajs.Cache#rm" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="rm(key:String):Unit"></a><a id="rm(String):Unit"></a>
+      <a id="rm():org.janzhou.scalajs.Cache"></a><a id="rm():Cache"></a>
       <span class="permalink">
-      <a href="../../../org/janzhou/scalajs/Cache.html#rm(key:String):Unit" title="Permalink">
+      <a href="../../../org/janzhou/scalajs/Cache.html#rm():org.janzhou.scalajs.Cache" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -645,43 +645,11 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">rm</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">rm</span><span class="params">()</span><span class="result">: <a href="" class="extype" name="org.janzhou.scalajs.Cache">Cache</a></span>
       </span>
       
-      
-    </li><li name="org.janzhou.scalajs.Cache#rm" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="rm():Unit"></a>
-      <span class="permalink">
-      <a href="../../../org/janzhou/scalajs/Cache.html#rm():Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">rm</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      
-    </li><li name="org.janzhou.scalajs.Cache#save" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="save():Unit"></a>
-      <span class="permalink">
-      <a href="../../../org/janzhou/scalajs/Cache.html#save():Unit" title="Permalink">
-        <i class="material-icons"></i>
-      </a>
-    </span>
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">save</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
-      </span>
-      
-      
-    </li><li name="org.janzhou.scalajs.Cache#set" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
+      <p class="shortcomment cmt">Remove all caches.</p>
+    </li><li name="org.janzhou.scalajs.Cache#set" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="set[Data](key:String,value:Data,expiry:Double)(implicitevidence$1:upickle.default.Writer[Data]):Data"></a><a id="set[Data](String,Data,Double)(upickle.default.Writer[Data]):Data"></a>
       <span class="permalink">
       <a href="../../../org/janzhou/scalajs/Cache.html#set[Data](key:String,value:Data,expiry:Double)(implicitevidence$1:upickle.default.Writer[Data]):Data" title="Permalink">
@@ -696,11 +664,11 @@
         <span class="name">set</span><span class="tparams">[<span name="Data">Data</span>]</span><span class="params">(<span name="key">key: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="value">value: <span class="extype" name="org.janzhou.scalajs.Cache.set.Data">Data</span></span>, <span name="expiry">expiry: <span class="extype" name="scala.Double">Double</span> = <span class="symbol">0</span></span>)</span><span class="params">(<span class="implicit">implicit </span><span name="arg0">arg0: <span class="extype" name="upickle.Types.Writer">upickle.default.Writer</span>[<span class="extype" name="org.janzhou.scalajs.Cache.set.Data">Data</span>]</span>)</span><span class="result">: <span class="extype" name="org.janzhou.scalajs.Cache.set.Data">Data</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Set the key with value.</p><div class="fullcomment"><div class="comment cmt"><p>Set the key with value.</p></div><dl class="paramcmts block"><dt class="param">key</dt><dd class="cmt"><p>the key of the cached item.</p></dd><dt class="param">value</dt><dd class="cmt"><p>the value of the cached item.</p></dd><dt class="param">expiry</dt><dd class="cmt"><p>the expiration time of the cached item. If not provided or the given value is not larger than 0, the default expiration will be used.</p></dd><dt>returns</dt><dd class="cmt"><p>the value of the cached item.</p></dd></dl></div>
     </li><li name="org.janzhou.scalajs.Cache#size" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="size():Unit"></a>
+      <a id="size():Int"></a>
       <span class="permalink">
-      <a href="../../../org/janzhou/scalajs/Cache.html#size():Unit" title="Permalink">
+      <a href="../../../org/janzhou/scalajs/Cache.html#size():Int" title="Permalink">
         <i class="material-icons"></i>
       </a>
     </span>
@@ -709,10 +677,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">size</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+        <span class="name">size</span><span class="params">()</span><span class="result">: <span class="extype" name="scala.Int">Int</span></span>
       </span>
       
-      
+      <p class="shortcomment cmt">Return current size of the cache.</p>
     </li><li name="scala.AnyRef#synchronized" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="synchronized[T0](x$1:=&gt;T0):T0"></a><a id="synchronized[T0](⇒T0):T0"></a>
       <span class="permalink">
