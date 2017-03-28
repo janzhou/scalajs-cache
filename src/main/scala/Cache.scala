@@ -15,6 +15,12 @@ object Cache {
   ) = new Cache(CacheKey, CacheSize, DefaultExpiration)
 }
 
+/** A Scalajs Cache running in browser.
+* @constructor Create a new cache with a name, size and default expiration time.
+* @param CacheKey the name of the cache.
+* @param CacheSize the max number of the cached items.
+* @param DefaultExpiration the default expiration time of the cached items.
+*/
 class Cache(
   val CacheKey:String,
   val CacheSize:Int,
@@ -33,7 +39,7 @@ class Cache(
   private var storage = scala.collection.mutable.Map[String, Item]()
   load()
 
-  def load():Unit = {
+  private def load():Unit = {
     try {
       read[Seq[(String, Item)]](localStorage.getItem(CacheKey)).foreach{ case (key, item) => {
         storage += (key -> item)
@@ -48,7 +54,7 @@ class Cache(
     }
   }
 
-  def save():Unit = {
+  private def save():Unit = {
     if(CacheSize > storage.size) {
       try {
         if(storage.size == 0) {
@@ -60,7 +66,8 @@ class Cache(
     } else evict()
   }
 
-  def evict():Unit = {
+  /** Remove last cache. */
+  def evict():Cache = {
     storage.size match {
       case 0 => storage.empty
       case 1 => storage.empty
@@ -76,26 +83,44 @@ class Cache(
       }
     }
     save()
+    this
   }
 
-  def size():Unit = storage.size
+  /** Return current size of the cache. */
+  def size():Int = storage.size
 
-  def rm():Unit = {
+  /** Remove all caches. */
+  def rm():Cache = {
     storage = scala.collection.mutable.Map[String, Item]()
     save()
+    this
   }
 
-  def rm(key: String):Unit = {
+  /** Remove selected cache.
+  * @param key name of the key.
+  */
+  def rm(key: String):Cache = {
     storage -= key
     save()
+    this
   }
 
+  /** Set the key with value.
+  * @param key the key of the cached item.
+  * @param value the value of the cached item.
+  * @param expiry the expiration time of the cached item. If not provided or the given value is not larger than 0, the default expiration will be used.
+  * @return the value of the cached item.
+  */
   def set[Data:Writer](key:String, value:Data, expiry:Double = 0):Data = {
     storage += (key -> new Item(write(value), if(expiry <= 0) 0 else Date.now() + expiry))
     save()
     value
   }
 
+  /** Get the value assigned to key.
+  * @param key the key of the cached item.
+  * @return Option of the value.
+  */
   def get[Data: Reader](key: String):Option[Data] = {
     storage.get(key) match {
       case Some(item) => {
@@ -118,7 +143,21 @@ class Cache(
     }
   }
 
+  /**
+  * Cache the result of a given function.
+  * @param key the key of the cached item.
+  * @param f the function to caculate the value.
+  * @return the value of the key, or the return value of the function.
+  */
   def apply[Data : Reader : Writer](key:String, f: => Data):Data = apply(key, DefaultExpiration, f)
+
+  /**
+  * Cache the result of a given function.
+  * @param key the key of the cached item.
+  * @param expiry the expiration time of the cached item.
+  * @param f the function to caculate the value.
+  * @return the value of the key, or the return value of the function.
+  */
   def apply[Data : Reader : Writer](key:String, expiry:Double, f: => Data):Data = {
     get[Data](key) match {
       case Some(value) => value
@@ -129,7 +168,21 @@ class Cache(
     }
   }
 
+  /**
+  * Cache of a given future.
+  * @param key the key of the cached item.
+  * @param future the future returning the value.
+  * @return the value of the key, or the return value of the future.
+  */
   def apply[Data : Reader : Writer](key:String, future: => Future[Data])(implicit ec: ExecutionContext):Future[Data] = apply(key, DefaultExpiration, future)
+
+  /**
+  * Cache of a given future.
+  * @param key the key of the cached item.
+  * @param expiry the expiration time of the cached item.
+  * @param future the future returning the value.
+  * @return the value of the key, or the return value of the future.
+  */
   def apply[Data : Reader : Writer](key:String, expiry:Double, future: => Future[Data])(implicit ec: ExecutionContext):Future[Data] = {
     get[Data](key) match {
       case Some(value) => Future(value)
