@@ -144,9 +144,9 @@ class Cache(
   }
 
   /** Get the all the value of a given Data type.
-  * @return A list of the values.
+  * @return A seq of the values.
   */
-  def getAll[Data: Reader]:List[Data] = {
+  def getAll[Data: Reader]:Seq[Data] = {
     val buf = scala.collection.mutable.ListBuffer.empty[Data]
     storage foreach { case (key, item) => {
       if(item.expired) {
@@ -160,7 +160,7 @@ class Cache(
         }
       }
     }}
-    buf.toList
+    buf.toSeq
   }
 
   /**
