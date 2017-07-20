@@ -143,6 +143,26 @@ class Cache(
     }
   }
 
+  /** Get the all the value of a given Data type.
+  * @return A list of the values.
+  */
+  def getAll[Data: Reader]:List[Data] = {
+    val buf = scala.collection.mutable.ListBuffer.empty[Data]
+    storage foreach { case (key, item) => {
+      if(item.expired) {
+        storage -= key
+        save()
+      } else {
+        try {
+          buf += read[Data](item.data)
+        } catch {
+          case _:Throwable => {}
+        }
+      }
+    }}
+    buf.toList
+  }
+
   /**
   * Cache the result of a given function.
   * @param key the key of the cached item.
