@@ -2,9 +2,8 @@ lazy val root = (project in file(".")).settings(
   name := "scalajs-cache",
   organization := "org.janzhou",
   version := "0.0.x",
-  scalaVersion := "2.12.1",
-  crossScalaVersions := Seq("2.11.8", "2.12.1"),
-  sbtVersion := "0.13.11",
+  scalaVersion := "2.12.2",
+  crossScalaVersions := Seq("2.11.8", "2.12.2"),
   scalacOptions ++= Seq(
     "-feature",
     "-deprecation",
@@ -17,7 +16,7 @@ lazy val root = (project in file(".")).settings(
   ),
   libraryDependencies ++= Seq(
     "com.lihaoyi" %%% "upickle" % "0.4.4",
-    "org.scala-js" %%% "scalajs-dom" % "0.9.1"
+    "org.scala-js" %%% "scalajs-dom" % "0.9.3"
   )
 ).
 enablePlugins(ScalaJSPlugin)
