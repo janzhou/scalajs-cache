@@ -11,8 +11,10 @@ object Cache {
   def apply(
     CacheKey:String,
     CacheSize:Int,
-    DefaultExpiration:Double
-  ) = new Cache(CacheKey, CacheSize, DefaultExpiration)
+    DefaultExpiration:Double,
+    BackendStore:String,
+    AutoSave:Boolean
+  ) = new Cache(CacheKey, CacheSize, DefaultExpiration, BackendStore, AutoSave)
 }
 
 /** A Scalajs Cache running in browser.
@@ -20,15 +22,20 @@ object Cache {
 * @param CacheKey the name of the cache.
 * @param CacheSize the max number of the cached items.
 * @param DefaultExpiration the default expiration time of the cached items.
+* @param BackendStore select backend Storage.
+* @param AutoSave save automatically
 */
 class Cache(
   val CacheKey:String,
   val CacheSize:Int,
-  val DefaultExpiration:Double
+  val DefaultExpiration:Double,
+  val BackendStore:String,
+  val AutoSave:Boolean
 ){
   assert(CacheKey.length > 0)
   assert(CacheSize > 0)
   assert(DefaultExpiration >= 0)
+  assert(BackendStore == "mem" || BackendStore == "localStorage")
 
   private case class Item(data:String, time:Double) {
     def expired:Boolean = {
@@ -39,7 +46,7 @@ class Cache(
   private var storage = scala.collection.mutable.Map[String, Item]()
   load()
 
-  private def load():Unit = {
+  def load():Unit = if(BackendStore == "localStorage") {
     try {
       read[Seq[(String, Item)]](localStorage.getItem(CacheKey)).foreach{ case (key, item) => {
         storage += (key -> item)
@@ -50,11 +57,11 @@ class Cache(
     val unexpired = storage.filter({case(key, item) => !item.expired})
     if(unexpired.size < storage.size){
       storage = unexpired
-      save()
+      if(AutoSave) save()
     }
   }
 
-  private def save():Unit = {
+  def save():Unit = if(BackendStore == "localStorage") {
     if(CacheSize > storage.size) {
       try {
         if(storage.size == 0) {
@@ -82,7 +89,7 @@ class Cache(
         storage -= selected._1
       }
     }
-    save()
+    if(AutoSave) save()
     this
   }
 
@@ -92,7 +99,7 @@ class Cache(
   /** Remove all caches. */
   def rm():Cache = {
     storage = scala.collection.mutable.Map[String, Item]()
-    save()
+    if(AutoSave) save()
     this
   }
 
@@ -101,7 +108,7 @@ class Cache(
   */
   def rm(key: String):Cache = {
     storage -= key
-    save()
+    if(AutoSave) save()
     this
   }
 
@@ -113,7 +120,7 @@ class Cache(
   */
   def set[Data:Writer](key:String, value:Data, expiry:Double = 0):Data = {
     storage += (key -> new Item(write(value), if(expiry <= 0) 0 else Date.now() + expiry))
-    save()
+    if(AutoSave) save()
     value
   }
 
@@ -126,7 +133,7 @@ class Cache(
       case Some(item) => {
         if(item.expired) {
           storage -= key
-          save()
+          if(AutoSave) save()
           None
         } else {
           try {
@@ -151,7 +158,7 @@ class Cache(
     storage foreach { case (key, item) => {
       if(item.expired) {
         storage -= key
-        save()
+        if(AutoSave) save()
       } else {
         try {
           buf += read[Data](item.data)
