@@ -46,31 +46,37 @@ class Cache(
   private var storage = scala.collection.mutable.Map[String, Item]()
   load()
 
-  def load():Unit = if(BackendStore == "localStorage") {
-    try {
-      read[Seq[(String, Item)]](localStorage.getItem(CacheKey)).foreach{ case (key, item) => {
-        storage += (key -> item)
-      }}
-    } catch {
-      case e:Throwable => println(s"Cache $CacheKey load error")
+  def load():Cache = {
+    if(BackendStore == "localStorage") {
+      try {
+        read[Seq[(String, Item)]](localStorage.getItem(CacheKey)).foreach{ case (key, item) => {
+          storage += (key -> item)
+        }}
+      } catch {
+        case e:Throwable => println(s"Cache $CacheKey load error")
+      }
+      val unexpired = storage.filter({case(key, item) => !item.expired})
+      if(unexpired.size < storage.size){
+        storage = unexpired
+        if(AutoSave) save()
+      }
     }
-    val unexpired = storage.filter({case(key, item) => !item.expired})
-    if(unexpired.size < storage.size){
-      storage = unexpired
-      if(AutoSave) save()
-    }
+    this
   }
 
-  def save():Unit = if(BackendStore == "localStorage") {
-    if(CacheSize > storage.size) {
-      try {
-        if(storage.size == 0) {
-          localStorage.removeItem(CacheKey)
-        } else localStorage.setItem(CacheKey, write(storage.toSeq))
-      } catch {
-        case e:Throwable => println(s"Cache $CacheKey save error")
-      }
-    } else evict()
+  def save():Cache = {
+    if(BackendStore == "localStorage") {
+      if(CacheSize > storage.size) {
+        try {
+          if(storage.size == 0) {
+            localStorage.removeItem(CacheKey)
+          } else localStorage.setItem(CacheKey, write(storage.toSeq))
+        } catch {
+          case e:Throwable => println(s"Cache $CacheKey save error")
+        }
+      } else evict()
+    }
+    this
   }
 
   /** Remove last cache. */
